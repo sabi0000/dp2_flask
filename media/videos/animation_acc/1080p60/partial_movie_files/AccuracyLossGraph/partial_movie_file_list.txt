@@ -1,0 +1,7 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/User/Desktop/DP/m_F4/media/videos/animation_acc/1080p60/partial_movie_files/AccuracyLossGraph/3977891868_3555705567_223132457.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/media/videos/animation_acc/1080p60/partial_movie_files/AccuracyLossGraph/2852726489_3890345977_2194345064.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/media/videos/animation_acc/1080p60/partial_movie_files/AccuracyLossGraph/2852726489_1456011233_3263066528.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/media/videos/animation_acc/1080p60/partial_movie_files/AccuracyLossGraph/2852726489_3890345977_1733465000.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/media/videos/animation_acc/1080p60/partial_movie_files/AccuracyLossGraph/2852726489_681552341_3012419487.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/media/videos/animation_acc/1080p60/partial_movie_files/AccuracyLossGraph/2852726489_1141282389_3867350178.mp4'

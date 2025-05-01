@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_networks_example/1080p60/partial_movie_files/NeuralNetwork3D/3977891868_1724595277_568465869.mp4'
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_networks_example/1080p60/partial_movie_files/NeuralNetwork3D/2852726489_2749861972_3024478960.mp4'
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_networks_example/1080p60/partial_movie_files/NeuralNetwork3D/2852726489_2834709167_3993338543.mp4'

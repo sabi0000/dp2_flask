@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>  </head>
+
+<body>
+    <h2>Ulohy</h2>
+    <img src="{{ url_for('image1') }}" alt="Popis obrázka" width="500" height="auto">
+
+    <form action="/process_image" method="post" enctype="multipart/form-data">
+        <!-- <label for="image">Upload Image:</label> -->
+        <!-- <input type="file" name="image" required> -->
+        
+        <label for="gauss_size">Gaussian Blur Size:</label>
+        <input type="number" name="gauss_size" min="1" max="15" step="2" required>
+
+        <label for="sigma">Sigma:</label>
+        <input type="number" name="sigma" min="1" max="15" step="2" required>
+        
+        <label for="lower_threshold">Lower Threshold:</label>
+        <input type="number" name="lower_threshold" min="0" max="255" required>
+        
+        <label for="upper_threshold">Upper Threshold:</label>
+        <input type="number" name="upper_threshold" min="0" max="255" required>
+        
+        <button type="submit">Process Image</button>
+    </form>
+
+ 
+
+    {% if process_image %}
+        <h3>Processed Image:</h3>
+        <img src="{{ processed_image_url }}" alt="Processed Image" width="500" height="auto">
+        <p><strong>Number of Edges:</strong> {{ num_edges }}</p>
+        <p><strong>Laplacian Variance:</strong> {{ laplacian_var }}</p>
+        <p><strong>Edge Density:</strong> {{ edge_density }}</p>
+        <p><strong>Edge Entropy:</strong> {{ edge_entropy }}</p>
+
+        <button onclick="compareData()">Compare with Previous Data</button>
+        <div id="comparison-result"></div>
+
+    {% endif %}
+
+
+    <script type="text/javascript">
+        // Extract and assign Jinja values to JavaScript variables
+        const numEdges = JSON.parse('{{ num_edges | default(0)| tojson }}');
+        const laplacianVar = JSON.parse('{{ laplacian_var | default(0)| tojson }}');
+        const edgeDensity = JSON.parse('{{ edge_density| default(0) | tojson }}');
+        const edgeEntropy = JSON.parse('{{ edge_entropy | default(0)| tojson }}');
+    
+        function compareData() {
+        // Create data object using JavaScript variables
+        const data = {
+            current_metrics: {
+                num_edges: numEdges,
+                laplacian_var: laplacianVar,
+                edge_density: edgeDensity,
+                edge_entropy: edgeEntropy
+            }
+        };
+
+        // Send data to server for comparison
+        fetch('/compare_image_data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            // Display comparison results
+            const resultDiv = document.getElementById('comparison-result');
+            resultDiv.innerHTML = `
+                <p><strong>Number of Edges Match:</strong> ${result.num_edges_match}</p>
+                <p><strong>Laplacian Variance Match:</strong> ${result.laplacian_var_match}</p>
+                <p><strong>Edge Density Match:</strong> ${result.edge_density_match}</p>
+                <p><strong>Edge Entropy Match:</strong> ${result.edge_entropy_match}</p>
+            `;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    </script>
+
+
+
+</body>
+
+
+</html>

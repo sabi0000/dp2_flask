@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detekcia hrán - Strana 2</title>
+</head>
+<body>
+    <h2>Parametre Sobeloveho filtra</h2>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="file">Choose an image:</label>
+        <input type="file" id="file" name="file" accept="image/*" required>
+        <br><br>
+        <button type="submit">Upload Image</button>
+    </form>
+
+    <!-- New form to upload kernel size -->
+    <form id="ksizeForm" action="/set_ksize" method="POST">
+        <label for="ksize">Kernel Size:</label>
+        <input type="number" id="ksize" name="ksize" min="1" max="31" step="2" required>
+        <br><br>
+        <button type="submit">Upload Kernel Size</button>
+    </form>
+
+    <form id="gaussForm" action="/set_gauss_size" method="POST">
+        <label for="gaussSize">Gauss size:</label>
+        <input type="number" id="gauss_size" name="gauss_size" required>
+        <label for="sigmaSize">Sigma:</label>
+        <input type="number" id="sigma_size" name="sigma_size" required>
+        <br><br>
+        <button type="submit">Upload Gauss size</button>
+    </form>
+
+    <form id="SobelRendering" action="/sobel_rendering" method="GET">
+        <button type="submit">Start Rendering</button>
+    </form>
+
+    <video width="800" height="600" controls>
+        <source src="{{ url_for('sobel_video') }}" type="video/mp4">
+    </video>
+
+    <h2>Parametre Cannyho detektora</h2>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="file">Choose an image:</label>
+        <input type="file" id="file" name="file" accept="image/*" required>
+        <br><br>
+        <button type="submit">Upload Image</button>
+    </form>
+
+    <form id="thresholdForm" action="/set_canny" method="POST">
+        <label for="lowerThreshold">Lower threshold:</label>
+        <input type="number" id="lower_threshold" name="lower_threshold" required>
+        <br><br>
+        <label for="upperThreshold">Upper threshold:</label>
+        <input type="number" id="upper_threshold" name="upper_threshold" required>
+        <br><br>
+        <button type="submit">Upload Threshold</button>
+    </form>
+
+    <form id="gaussForm" action="/set_gauss_size" method="POST">
+        <label for="gaussSize">Gauss size:</label>
+        <input type="number" id="gauss_size" name="gauss_size" required>
+        <label for="sigmaSize">Sigma:</label>
+        <input type="number" id="sigma_size" name="sigma_size" required>
+        <br><br>
+        <button type="submit">Upload Gauss size</button>
+    </form>
+    
+
+    <form id="CannyRendering" action="/render" method="GET">
+        <button type="submit">Start Rendering</button>
+    </form>
+
+    <video width="800" height="600" controls>
+        <source src="{{ url_for('canny_video') }}" type="video/mp4">
+    </video>
+
+    <br><br>
+    <a href="{{ url_for('hrany', page_number=1) }}">Späť na prvú stranu</a>
+
+
+    </form>
+
+
+</body>
+</html>

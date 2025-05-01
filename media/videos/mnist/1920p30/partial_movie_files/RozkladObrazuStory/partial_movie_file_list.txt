@@ -1,0 +1,3 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/mnist/1920p30/partial_movie_files/RozkladObrazuStory/4186404900_1775446477_679485354.mp4'
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/mnist/1920p30/partial_movie_files/RozkladObrazuStory/3517524501_2844360058_1287376586.mp4'

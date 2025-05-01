@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/User/Desktop/DP/m_F4/anim_folder/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/3977891868_1837051128_223132457.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/anim_folder/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_3890345977_278581652.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/anim_folder/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_3364271211_1639143868.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/anim_folder/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_3890345977_3581272528.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/anim_folder/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_132427029_3777453764.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/anim_folder/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_1141282389_4229105138.mp4'
+file 'file:C:/Users/User/Desktop/DP/m_F4/anim_folder/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_1141282389_935885177.mp4'
