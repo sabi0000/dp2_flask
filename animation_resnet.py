@@ -1,5 +1,5 @@
 from manim import *
-
+import random
 class ResNet50Dots(Scene):
     def create_layer(self, num_dots, center, radius=0.06, spacing=0.15, color=BLUE):
         dots = VGroup()
@@ -17,7 +17,7 @@ class ResNet50Dots(Scene):
             column_center = center + (i - (num_columns - 1) / 2) * 0.3  # Posun stĺpcov na stred
             column = self.create_layer(num_dots, center=column_center, radius=radius, spacing=spacing, color=color)
             # Posun stĺpcov vertikálne pre variabilitu
-            vertical_offset = (num_columns - 1) * 0.1 - i * 0.15  # Pridanie variabilného posunu
+            vertical_offset = (num_columns - 1) * 0.9 - i * 0.3  # Pridanie variabilného posunu
             column.shift(UP * vertical_offset)
             block.add(column)
         return block
@@ -47,7 +47,7 @@ class ResNet50Dots(Scene):
             text = Text(label, font_size=20).next_to(layer, UP)
             group = VGroup(layer, text)
             all_layers.add(group)
-            x_shift += 1.5  # Rozšírenie spacingu medzi vrstvami
+            x_shift += 2  # Rozšírenie spacingu medzi vrstvami
 
         all_layers.move_to(ORIGIN)
 

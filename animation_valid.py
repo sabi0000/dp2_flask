@@ -34,8 +34,8 @@ class ValidationAccuracyLossGraph(Scene):
         accuracy_graph = ax.plot_line_graph(x_values, validation_accuracy, line_color=GREEN, add_vertex_dots=True, vertex_dot_radius=0.05)
         loss_graph = ax.plot_line_graph(x_values, validation_loss, line_color=ORANGE, add_vertex_dots=True, vertex_dot_radius=0.05)
         
-        accuracy_label = Text("Validation Accuracy", color=GREEN).next_to(ax, UP * 1).shift(LEFT * 1.5)
-        loss_label = Text("Validation Loss", color=ORANGE).next_to(accuracy_label , RIGHT * 0.1)
+        accuracy_label = Text("Validation Accuracy", color=GREEN,font_size=34).next_to(ax, UP * 1).shift(LEFT * 1.5)
+        loss_label = Text("Validation Loss", color=ORANGE,font_size=34).next_to(accuracy_label , RIGHT * 2.1)
         
         warning_text = Text("Overfitting Detected!", color=YELLOW).scale(1.2).next_to(ax, DOWN * 2)
         

@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/3977891868_3345589506_223132457.mp4'
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_4217992463_2903295248.mp4'
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_3419350342_2393041269.mp4'
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_4217992463_3101324742.mp4'
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_2408335356_3626650156.mp4'
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_2844360058_3923742263.mp4'
+file 'file:C:/Users/PC/Desktop/dp/dp2/media/videos/animation_valid/1080p60/partial_movie_files/ValidationAccuracyLossGraph/2852726489_2844360058_562194502.mp4'

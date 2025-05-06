@@ -65,7 +65,8 @@ class NeuralNetwork(Scene):
             self.play(neuron.animate.set_fill(color, opacity=output_values[neurons[-1].index(neuron)]), run_time=0.5)
         
         output_text = Text(f"Výstup: Trieda {output_values.index(max(output_values))}", font_size=24)
-        output_text.next_to(neurons[-1][-1], RIGHT * 2)
+        output_text.next_to(neurons[-1][-1], RIGHT)
+        output_text.shift(RIGHT * -0.5 + UP * 2)
         self.add(output_text)
 
         # Simulácia overfittingu pri vyššom počte vrstiev a neurónov
