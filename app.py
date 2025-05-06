@@ -504,7 +504,7 @@ def compare_image_data():
         for k, v in previous_metrics.items()
     }
 
-    # Ensure current metrics are also converted dd
+    # Ensure current metrics are also converted
     current_metrics = {
         "num_edges": int(current_metrics.get("num_edges", 0)),
         "laplacian_var": float(current_metrics.get("laplacian_var", 0.0)),
