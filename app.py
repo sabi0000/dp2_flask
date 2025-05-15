@@ -19,9 +19,9 @@ app.secret_key = 'your_secret_key'
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False
 app.config['SESSION_FILE_DIR'] = './flask_session'
-app.config['SECRET_KEY'] = 'your_secret_key'  # Povinné pre session!
+app.config['SECRET_KEY'] = 'your_secret_key'  # Povinné pre session
 app.config['SESSION_COOKIE_SAMESITE'] = 'None'
-app.config['SESSION_COOKIE_SECURE'] = True  # Musí byť True, ak používate 'None'
+app.config['SESSION_COOKIE_SECURE'] = True  
 Session(app)
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')  # Absolútna cesta
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -57,9 +57,9 @@ def upload_file():
     # Store the image path in the session
     session['image_path'] = image_path
     session.modified = True 
-    print(f"File uploaded successfully at {image_path}")  # Debug print
-    print(f"Session image_path: {session['image_path']}")  # Debug print
-    print(f"Session after setting image_path: {session}")  # Debug print
+    print(f"File uploaded successfully at {image_path}")  
+    print(f"Session image_path: {session['image_path']}")  
+    print(f"Session after setting image_path: {session}")  
 
     return f"File uploaded successfully at {image_path}"
 
@@ -78,9 +78,9 @@ def conv_upload_file():
     # Store the image path in the session
     session['image_path'] = image_path
     session.modified = True 
-    print(f"File uploaded successfully at {image_path}")  # Debug print
-    print(f"Session image_path: {session['image_path']}")  # Debug print
-    print(f"Session after setting image_path: {session}")  # Debug print
+    print(f"File uploaded successfully at {image_path}")  
+    print(f"Session image_path: {session['image_path']}")  
+    print(f"Session after setting image_path: {session}")  
 
     return f"File uploaded successfully at {image_path}"
 
@@ -123,7 +123,7 @@ def render_sobel_animation():
     os.environ['IMAGE_PATH'] = image_path
     print(f"Image path set to: {image_path}")  # Debug print
 
-    video_path = "media/videos/animation2/480p15/SobelFilterAnimation.mp4"  # Zmeňte na správnu cestu
+    video_path = "media/videos/animation2/480p15/SobelFilterAnimation.mp4"  # 
     if os.path.exists(video_path):
         os.remove(video_path)
         print("Existing video removed.") 
@@ -190,7 +190,7 @@ def adaptive_animation():
 def gauss_animation():
     print("Rendering requested")  # Debug print
     image_path = session.get('image_path')
-    print(f"Session image_path before rendering: {image_path}")  # Debug print
+    print(f"Session image_path before rendering: {image_path}")  # 
 
     if not image_path:
         print("Error: No image uploaded.")  # Debug print
@@ -236,7 +236,7 @@ def median_animation():
 def render_network_animation():
     print("Network rendering requested")  # Debug print
 
-    video_path = "media/videos/network_user_anim/1080p60/NeuralNetwork.mp4"  # Zmeňte na správnu cestu
+    video_path = "media/videos/network_user_anim/1080p60/NeuralNetwork.mp4"  # 
     if os.path.exists(video_path):
         os.remove(video_path)
         print("Existing video removed.") 
@@ -278,14 +278,14 @@ def render_acc_animation():
         print("Rendering failed")  # Debug print
         return "Error: Rendering failed.", 500
 
-    print("Rendering completed successfully")  # Debug print
+    print("Rendering completed successfully")  # 
     return "Both animations rendered!" 
 
 @app.route('/set_gauss_size', methods=['POST'])
 def set_gauss():
-    data_gauss = request.get_json()  # Získajte JSON dáta
-    gauss_size = data_gauss.get('gauss_size')   # Získajte hodnotu gauss_size
-    sigma_size = data_gauss.get('sigma_size')   # Získajte hodnotu sigma_size
+    data_gauss = request.get_json()  # 
+    gauss_size = data_gauss.get('gauss_size')   # 
+    sigma_size = data_gauss.get('sigma_size')   # 
 
     if gauss_size is None or sigma_size is None:
         return "Error: Gauss size and sigma size are required", 400
@@ -298,14 +298,14 @@ def set_gauss():
 
 @app.route('/set_ksize', methods=['POST'])
 def set_ksize():
-    data = request.get_json()  # Získajte JSON dáta
-    ksize = data.get('ksize')   # Získajte hodnotu ksize
+    data = request.get_json()  
+    ksize = data.get('ksize')   
 
     if ksize is None:
         return "Error: Kernel size is required", 400
     
     # Set the kernel size in the environment variable
-    os.environ['KERNEL_SIZE'] = str(ksize)  # Uistite sa, že je to reťazec
+    os.environ['KERNEL_SIZE'] = str(ksize)  #  reťazec
     print(f"Kernel size set to {ksize}")  # Debug print
 
     return f"Kernel size successfully set to {ksize}"
@@ -371,156 +371,58 @@ def set_adaptive():
     
     os.environ['ADAPTIVE_THRESHOLD'] = str(adaptive_treshold)
     os.environ['CONSTANT'] = str(constant)
-    print(f"Treshold set to {adaptive_treshold}, constant set to {constant}")  # Debug print
+    print(f"Treshold set to {adaptive_treshold}, constant set to {constant}")  # 
 
     return f"reshold successfully set to {adaptive_treshold}, constant set to {constant}"
 
 @app.route('/set_neural_network', methods=['POST'])
 def set_network():
-    data_network = request.get_json()  # Získajte JSON dáta
-    layers = data_network.get('layers')   # Získajte hodnotu gauss_size
-    neurons = data_network.get('neurons')   # Získajte hodnotu sigma_size
+    data_network = request.get_json()  # 
+    layers = data_network.get('layers')   # 
+    neurons = data_network.get('neurons')   # 
 
     if layers is None or neurons is None:
         return "Error: Layers and neurons are required", 400
     
     os.environ['LAYERS'] = str(layers)
     os.environ['NEURONS'] = str(neurons)
-    print(f"Layers set to {layers}, neurons set to {neurons}")  # Debug print
+    print(f"Layers set to {layers}, neurons set to {neurons}")  # 
 
     return f"Layers successfully set to {layers}, neurons set to {neurons}"
 
 @app.route('/conv_rendering', methods=['POST'])
 def conv_animation():
-    print("Conv rendering requested")  # Debug print
-    print(f"Session at start of conv_rendering: {session}")  # Debug print
-    print(f"Session keys available: {list(session.keys())}")  # Debug keys
+    print("Conv rendering requested")  # 
+    print(f"Session at start of conv_rendering: {session}")  # 
+    print(f"Session keys available: {list(session.keys())}")  # 
 
 
     image_path = session.get('image_path')
-    print(f"Session image_path before rendering: {image_path}")  # Debug print
+    print(f"Session image_path before rendering: {image_path}")  # 
     if not image_path:
-        print("Error: No image uploaded.")  # Debug print
+        print("Error: No image uploaded.")  # 
         return "Error: No image uploaded.", 400
 
     os.environ['IMAGE_PATH'] = image_path
-    print(f"Image path set to: {image_path}")  # Debug print
+    print(f"Image path set to: {image_path}")  # 
 
-    video_path = "media/videos/mnist_user/1920p30/ImageDecompositionAnimationUser.mp4"  # Zmeňte na správnu cestu
+    video_path = "media/videos/mnist_user/1920p30/ImageDecompositionAnimationUser.mp4"  # 
     if os.path.exists(video_path):
         os.remove(video_path)
         print("Existing video removed.") 
 
     # Spustite renderovanie a skontrolujte výsledok
-    print("Starting rendering...")  # Debug print
+    print("Starting rendering...")  # 
     result = os.system(f'manim -p -ql mnist_user.py ImageDecompositionAnimationUser --disable_caching')
     print(f"Manim exit code: {result}")
    
     if result != 0:
-        print("Rendering failed")  # Debug print
+        print("Rendering failed")  # 
         return "Error: Rendering failed.", 500
 
-    print("Rendering completed successfully")  # Debug print
+    print("Rendering completed successfully")  # 
     return "Animation rendered!"
 
-@app.route('/process_image', methods=['POST'])
-def process_image():
-    num_edges = np.int32(1234)  # Example int32 type
-    laplacian_var = np.float32(150.5)  # Example float32 type
-    edge_density = np.float32(0.2)
-    edge_entropy = np.float32(2.7)
-
-    # Convert to standard Python int or float types
-    num_edges = int(num_edges)
-    laplacian_var = float(laplacian_var)
-    edge_density = float(edge_density)
-    edge_entropy = float(edge_entropy)
-
-    #image_file = request.files['image']
-    gauss_size = int(request.form['gauss_size'])
-    lower_threshold = int(request.form['lower_threshold'])
-    upper_threshold = int(request.form['upper_threshold'])
-    sigma=int(request.form['sigma'])
-
-    # Save the uploaded image to a temporary file
-    image_path = os.path.join('static', 'ISIC_0024311.jpg')
-    #image_file.save(image_path)
-
-    # Load and process the image with OpenCV
-    image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-    blurred_image = cv2.GaussianBlur(image, (gauss_size, gauss_size), 0)
-    edges = cv2.Canny(blurred_image, lower_threshold, upper_threshold)
-    num_edges = np.sum(edges > 0)
-    laplacian_var = cv2.Laplacian(edges, cv2.CV_64F).var()
-    edge_density = num_edges / (image.shape[0] * image.shape[1])
-    histogram, _ = np.histogram(edges.flatten(), bins=256, range=[0, 256])
-    edge_entropy = entropy(histogram)
-
-    num_edges = int(num_edges)
-    laplacian_var = round(laplacian_var, 4)
-    edge_density = round(edge_density, 4)
-    edge_entropy = round(edge_entropy, 4)
-
-    # Save the processed image
-    processed_image_path = os.path.join('static', 'processed_image.png')
-    cv2.imwrite(processed_image_path, edges)
-
-    # Return the template with the processed image URL
-    #return render_template('hrany3.html', process_image=True, processed_image_url=url_for('static', filename='processed_image.png'))
-    return render_template(
-        'hrany3.html',
-        process_image=True,
-        processed_image_url=url_for('static', filename='processed_image.png'),
-        num_edges=num_edges,
-        laplacian_var=laplacian_var,
-        edge_density=edge_density,
-        edge_entropy=edge_entropy
-    )
-
-
-@app.route('/compare_image_data', methods=['POST'])
-def compare_image_data():
-    data = request.json
-    current_metrics = data.get('current_metrics', {})
-
-    REFERENCE_METRICS = {
-        "num_edges": 15467,
-        "laplacian_var": 37868.1516,
-        "edge_density": 0.0572,
-        "edge_entropy": 0.2194
-    }
-
-    # Example of previous metrics that may be NumPy types
-    previous_metrics = {
-        "num_edges": np.int32(1000),        # Example numpy int32 type
-        "laplacian_var": np.float32(150.0), # Example numpy float32 type
-        "edge_density": np.float32(0.1),
-        "edge_entropy": np.float32(2.7)
-    }
-
-    # Convert all NumPy values to standard Python int or float
-    previous_metrics = {
-        k: int(v) if isinstance(v, np.integer) else float(v) if isinstance(v, np.floating) else v
-        for k, v in previous_metrics.items()
-    }
-
-    # Ensure current metrics are also converted
-    current_metrics = {
-        "num_edges": int(current_metrics.get("num_edges", 0)),
-        "laplacian_var": float(current_metrics.get("laplacian_var", 0.0)),
-        "edge_density": float(current_metrics.get("edge_density", 0.0)),
-        "edge_entropy": float(current_metrics.get("edge_entropy", 0.0))
-    }
-
-    # Comparison logic
-    comparison_results = {
-        "num_edges_match": abs(current_metrics["num_edges"] - REFERENCE_METRICS["num_edges"]) <= 10000,
-        "laplacian_var_match": abs(current_metrics["laplacian_var"] - REFERENCE_METRICS["laplacian_var"]) <= 500,
-        "edge_density_match": abs(current_metrics["edge_density"] - REFERENCE_METRICS["edge_density"]) <= 0.01,
-        "edge_entropy_match": abs(current_metrics["edge_entropy"] - REFERENCE_METRICS["edge_entropy"]) <= 0.01
-    }
-
-    return jsonify(comparison_results)
 
 @app.route("/segment", methods=["POST"])
 def segment():
@@ -759,11 +661,8 @@ def hrany(page_number):
         return render_template('hrany3.html')
     else:
         return "Page not found", 404
-    #return render_template('hrany.html')
-
-#if __name__ == '__main__':    
-#    app.run(debug=True)
 
 if __name__ == "__main__":
     from waitress import serve
+    print("Running on http://localhost:5000 (via Waitress)")
     serve(app, host="0.0.0.0", port=5000)

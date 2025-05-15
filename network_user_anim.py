@@ -53,7 +53,7 @@ class NeuralNetwork(Scene):
                 if any(np.allclose(connection.get_start(), n.get_center()) for n in layer):
                     self.play(connection.animate.set_color(BLUE), run_time=0.2)
 
-        # 🔥 Dynamická farba výstupných neurónov podľa počtu skrytých vrstiev a neurónov
+        # Dynamická farba výstupných neurónov podľa počtu skrytých vrstiev a neurónov
         max_layers = 6
         max_neurons = 8
         intensity_factor = hidden_layers / max_layers  # Normalizácia od 0 do 1
